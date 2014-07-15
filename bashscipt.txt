@@ -1,0 +1,6 @@
+awk '{FS=","; print $4;}' train-sample_output.csv | sort | uniq -c | sort -rn > directory.txt              -----------> counts occurences of tags and writes to output 
+
+cat dict.csv | awk 'BEGIN {FS = ":" } {printf("%d\t%s\n",$2,$1);}' | sort -rn > sortedkeys.txt             -----------> Sorts words in reverse order of counts
+
+cat sortedkeys.txt | awk 'BEGIN{FS=" ";}{print $1;}'| uniq -c | sort -rn > test.txt                        ------------> Sorts Number of words having specific occurence. Eg: 5 words have 2 occurances
+
